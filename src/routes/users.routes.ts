@@ -7,9 +7,9 @@ import userLoginController from "../controllers/users/userLogin.controller";
 
 const usersRouter= Router()
 
-usersRouter.post('',userCreateController)
-usersRouter.get('',userListController)
-usersRouter.delete('/:id',userDeleteController)
+usersRouter.post('/users',userCreateController)
+usersRouter.get('/users',userListController)
+usersRouter.delete('/users/:id',userDeleteController)
 usersRouter.post('/login',userLoginController)
 
 export default usersRouter

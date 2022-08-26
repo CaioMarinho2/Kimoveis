@@ -10,6 +10,6 @@ app.use(express.json())
 app.use('/categories',categoriesRouter)
 app.use('/properties',propertiesRouter)
 app.use('/schedules',schedulesRouter)
-app.use('/users',usersRouter)
+app.use('',usersRouter)
 
 export default app
