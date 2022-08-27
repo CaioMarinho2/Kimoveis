@@ -15,10 +15,15 @@ export class Schedules_users_properties {
   @Column({type:'time'} )
   hour:string;
 
-  @ManyToOne(()=>Properties)
+  @ManyToOne(()=>Properties,{
+    nullable:false,
+  
+  })
   property: Properties
 
-  @ManyToOne(()=>User)
+  @ManyToOne(()=>User,{
+    nullable:false,
+  })
   user:User
 
   constructor() {

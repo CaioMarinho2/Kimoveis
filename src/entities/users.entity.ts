@@ -1,3 +1,4 @@
+import { Exclude } from "class-transformer";
 import {
   Entity,
   Column,
@@ -8,6 +9,7 @@ import {
 } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Schedules_users_properties } from "./schedules_users_properties.entity";
+
 
 @Entity("users")
 export class User {
@@ -27,6 +29,7 @@ export class User {
   isActive: boolean;
 
   @Column()
+  @Exclude()
   password: string;
 
   @CreateDateColumn()

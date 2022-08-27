@@ -1,4 +1,4 @@
-function categoriesListPropertiesService() {
+async function categoriesListPropertiesService() {
     
 }
 

@@ -1,4 +1,4 @@
-function propertiesCreateService() {
+async function propertiesCreateService() {
     
 }
 

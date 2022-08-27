@@ -1,4 +1,4 @@
-function schedulesPropertiesListService() {
+async function schedulesPropertiesListService() {
     
 }
 

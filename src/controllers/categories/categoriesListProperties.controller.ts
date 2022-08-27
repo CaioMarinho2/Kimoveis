@@ -1,5 +1,6 @@
 import { Request,Response } from "express";
-function categoriesListPropertiesController(req:Request,res:Response) {
+
+async function categoriesListPropertiesController(req:Request,res:Response) {
     
 }
 

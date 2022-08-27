@@ -1,6 +1,6 @@
 import { Request,Response } from "express";
 
-function categoriesCreateController(req:Request,res:Response) {
+async function categoriesCreateController(req:Request,res:Response) {
     
 }
 

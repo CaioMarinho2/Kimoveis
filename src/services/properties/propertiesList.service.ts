@@ -1,4 +1,4 @@
-function propertiesListService() {
+async function propertiesListService() {
     
 }
 

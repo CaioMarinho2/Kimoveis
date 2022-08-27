@@ -14,10 +14,10 @@ export class Addresses {
   zipCode: string;
 
   @Column()
-  number: boolean;
+  number: string;
 
   @Column()
-  city: boolean;
+  city: string;
 
   @Column({ length: 2 })
   state: string;

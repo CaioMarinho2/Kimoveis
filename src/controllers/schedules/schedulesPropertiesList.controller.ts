@@ -1,6 +1,6 @@
 import { Request,Response } from "express";
 
-function schedulesPropertiesListController(req:Request,res:Response) {
+async function schedulesPropertiesListController(req:Request,res:Response) {
     
 }
 

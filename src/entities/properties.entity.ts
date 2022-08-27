@@ -7,15 +7,16 @@ import {
   OneToOne,
   JoinColumn,
   ManyToOne,
-  OneToMany
+  OneToMany,
+  Unique,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Addresses } from "./addresses.entity";
 import { Categories } from "./categories.entity";
 import { Schedules_users_properties } from "./schedules_users_properties.entity";
 
-
 @Entity("properties")
+@Unique(["adresses"])
 export class Properties {
   @PrimaryColumn("uuid")
   readonly id: string;
@@ -23,11 +24,11 @@ export class Properties {
   @Column({ default: false })
   sold: boolean;
 
-  @Column("decimal", {precision:12, scale:2} )
+  @Column("decimal", { precision: 12, scale: 2 })
   value: number;
 
-  @Column({type:'integer'})
-  size: number ;
+  @Column({ type: "integer" })
+  size: number;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -35,17 +36,21 @@ export class Properties {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToOne((type)=>Addresses,{
-    eager:true,
-    nullable:false,
-  })@JoinColumn()
-  adresses:Addresses
+  @OneToOne((type) => Addresses, {
+    eager: true,
+    nullable: false,
+  })
+  @JoinColumn()
+  adresses: Addresses;
 
-  @ManyToOne(()=>Categories)
-  category:Categories
+  @ManyToOne(() => Categories)
+  category: Categories;
 
-  @OneToMany(()=>Schedules_users_properties,schedules_users_properties=>schedules_users_properties.property)
-  schedules_users_properties: Schedules_users_properties[]
+  @OneToMany(
+    () => Schedules_users_properties,
+    (schedules_users_properties) => schedules_users_properties.property
+  )
+  schedules_users_properties: Schedules_users_properties[];
 
   constructor() {
     if (!this.id) {

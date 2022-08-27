@@ -1,4 +1,4 @@
-function categoriesCreateService() {
+async function categoriesCreateService() {
     
 }
 
