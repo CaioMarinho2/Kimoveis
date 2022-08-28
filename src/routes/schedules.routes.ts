@@ -7,7 +7,7 @@ import verifyTokenMiddleware from "../middlewares/verifyToken.middleware";
 
 const schedulesRouter= Router()
 
-schedulesRouter.post('',schedulesCreateController)
+schedulesRouter.post('',verifyTokenMiddleware,schedulesCreateController)
 schedulesRouter.get('/properties/:id',verifyTokenMiddleware,verifyPermitionMiddleware,schedulesPropertiesListController)
 
 export default schedulesRouter
