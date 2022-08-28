@@ -13,7 +13,7 @@ export class Categories{
   name: string;
 
 @OneToMany(()=>Properties, properties=> properties.category)
-categories:Properties[]
+properties:Properties[]
 
   constructor() {
     if (!this.id) {

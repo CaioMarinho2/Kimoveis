@@ -16,7 +16,7 @@ import { Categories } from "./categories.entity";
 import { Schedules_users_properties } from "./schedules_users_properties.entity";
 
 @Entity("properties")
-@Unique(["adresses"])
+@Unique(["address"])
 export class Properties {
   @PrimaryColumn("uuid")
   readonly id: string;
@@ -41,7 +41,7 @@ export class Properties {
     nullable: false,
   })
   @JoinColumn()
-  adresses: Addresses;
+  address: Addresses;
 
   @ManyToOne(() => Categories)
   category: Categories;
@@ -50,7 +50,7 @@ export class Properties {
     () => Schedules_users_properties,
     (schedules_users_properties) => schedules_users_properties.property
   )
-  schedules_users_properties: Schedules_users_properties[];
+  schedules: Schedules_users_properties[];
 
   constructor() {
     if (!this.id) {
