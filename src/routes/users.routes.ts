@@ -6,12 +6,21 @@ import userLoginController from "../controllers/users/userLogin.controller";
 import verifyPermitionMiddleware from "../middlewares/verifyPermition.middleware";
 import verifyTokenMiddleware from "../middlewares/verifyToken.middleware";
 
+const usersRouter = Router();
 
-const usersRouter= Router()
+usersRouter.post("/users", userCreateController);
+usersRouter.get(
+  "/users",
+  verifyTokenMiddleware,
+  verifyPermitionMiddleware,
+  userListController
+);
+usersRouter.delete(
+  "/users/:id",
+  verifyTokenMiddleware,
+  verifyPermitionMiddleware,
+  userDeleteController
+);
+usersRouter.post("/login", userLoginController);
 
-usersRouter.post('/users',userCreateController)
-usersRouter.get('/users',verifyTokenMiddleware,verifyPermitionMiddleware,userListController)
-usersRouter.delete('/users/:id',verifyTokenMiddleware,verifyPermitionMiddleware,userDeleteController)
-usersRouter.post('/login',userLoginController)
-
-export default usersRouter
+export default usersRouter;

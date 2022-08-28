@@ -9,30 +9,28 @@ async function verifyPermitionMiddleware(
   res: Response,
   next: NextFunction
 ) {
-    let token = req.headers.authorization;
-   
-    token = token!.split(" ")[1];
-  
-  const userID=jwt.decode(token) as IUserToken
-    
-        const userRepository= AppDataSource.getRepository(User)
-        const users=await userRepository.find()
-    
-      const userInfos = users.find((user) => user.id === userID.id);
-  
-      if (!userInfos) {
-        return res.status(401).json({ message: "invalid token" });
-      }
-      const isAdm = userInfos.isAdm;
-      if (!isAdm) {
-        return res
-          .status(403)
-          .json({ message: "Error, route requires admin authorization" });
-      }
+  let token = req.headers.authorization;
 
-      next();
-    
+  token = token!.split(" ")[1];
 
+  const userID = jwt.decode(token) as IUserToken;
+
+  const userRepository = AppDataSource.getRepository(User);
+  const users = await userRepository.find();
+
+  const userInfos = users.find((user) => user.id === userID.id);
+
+  if (!userInfos) {
+    return res.status(401).json({ message: "invalid token" });
+  }
+  const isAdm = userInfos.isAdm;
+  if (!isAdm) {
+    return res
+      .status(403)
+      .json({ message: "Error, route requires admin authorization" });
+  }
+
+  next();
 }
 
 export default verifyPermitionMiddleware;

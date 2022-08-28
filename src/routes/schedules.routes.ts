@@ -4,10 +4,14 @@ import schedulesPropertiesListController from "../controllers/schedules/schedule
 import verifyPermitionMiddleware from "../middlewares/verifyPermition.middleware";
 import verifyTokenMiddleware from "../middlewares/verifyToken.middleware";
 
+const schedulesRouter = Router();
 
-const schedulesRouter= Router()
+schedulesRouter.post("", verifyTokenMiddleware, schedulesCreateController);
+schedulesRouter.get(
+  "/properties/:id",
+  verifyTokenMiddleware,
+  verifyPermitionMiddleware,
+  schedulesPropertiesListController
+);
 
-schedulesRouter.post('',verifyTokenMiddleware,schedulesCreateController)
-schedulesRouter.get('/properties/:id',verifyTokenMiddleware,verifyPermitionMiddleware,schedulesPropertiesListController)
-
-export default schedulesRouter
+export default schedulesRouter;

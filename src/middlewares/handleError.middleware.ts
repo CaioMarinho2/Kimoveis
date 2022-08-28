@@ -7,7 +7,7 @@ export async function handleErrorMiddleware(
   res: Response,
   next: NextFunction
 ) {
-  console.log({message:error.message, name:error.name})
+ 
   if (error instanceof AppError) {
   return   res.status(error.statusCode).json({ message: error.message });
   }

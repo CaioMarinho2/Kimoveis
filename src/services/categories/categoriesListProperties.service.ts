@@ -13,8 +13,6 @@ async function categoriesListPropertiesService(id: string) {
     relations: { properties: true },
   });
 
-
-
   if (!categories) {
     throw new AppError("categories not found", 404);
   }

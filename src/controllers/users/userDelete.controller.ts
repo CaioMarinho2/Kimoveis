@@ -1,12 +1,12 @@
-import { Request,Response } from "express";
+import { Request, Response } from "express";
 import userDeleteService from "../../services/users/userDelete.service";
 
-async function userDeleteController(req:Request,res:Response) {
-    const id= req.params.id
-   
-    const  updatedUser= await userDeleteService(id)
+async function userDeleteController(req: Request, res: Response) {
+  const id = req.params.id;
 
-    return res.status(204).json({message:"user deleted with sucess"})
+  const updatedUser = await userDeleteService(id);
+
+  return res.status(204).json({ message: "user deleted with sucess" });
 }
 
-export default userDeleteController
+export default userDeleteController;

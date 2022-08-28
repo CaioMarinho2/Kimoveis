@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryColumn } from "typeorm";
-import {v4 as uuid} from "uuid"
-
+import { v4 as uuid } from "uuid";
 
 @Entity("addresses")
 export class Addresses {
@@ -13,7 +12,7 @@ export class Addresses {
   @Column({ length: 8 })
   zipCode: string;
 
-  @Column({nullable:true})
+  @Column({ nullable: true })
   number: string;
 
   @Column()
@@ -21,8 +20,6 @@ export class Addresses {
 
   @Column({ length: 2 })
   state: string;
-
-
 
   constructor() {
     if (!this.id) {

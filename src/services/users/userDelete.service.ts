@@ -13,8 +13,10 @@ async function userDeleteService(id: string) {
     throw new AppError("user is not active", 400);
   }
 
-  const deletUser=await userRepository.update(userDelet.id, {isActive:false})
-  return  deletUser
+  const deletUser = await userRepository.update(userDelet.id, {
+    isActive: false,
+  });
+  return deletUser;
 }
 
 export default userDeleteService;

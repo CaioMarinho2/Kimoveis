@@ -5,11 +5,10 @@ import {
   PrimaryColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany
+  OneToMany,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { Schedules_users_properties } from "./schedules_users_properties.entity";
-
 
 @Entity("users")
 export class User {
@@ -25,7 +24,7 @@ export class User {
   @Column()
   isAdm: boolean;
 
-  @Column({default:true})
+  @Column({ default: true })
   isActive: boolean;
 
   @Column()
@@ -38,8 +37,11 @@ export class User {
   @UpdateDateColumn()
   updatedAt: Date;
 
-  @OneToMany(()=>Schedules_users_properties,schedules_users_properties=>schedules_users_properties.user)
-  schedules_users_properties: Schedules_users_properties[]
+  @OneToMany(
+    () => Schedules_users_properties,
+    (schedules_users_properties) => schedules_users_properties.user
+  )
+  schedules_users_properties: Schedules_users_properties[];
   constructor() {
     if (!this.id) {
       this.id = uuid();

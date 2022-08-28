@@ -11,7 +11,7 @@ async function userCreateService({
   isAdm,
 }: IUserRequest) {
   if (!name || !email || !password || isAdm === undefined) {
-    throw new AppError("missing argument",400);
+    throw new AppError("missing argument", 400);
   }
 
   const userRepository = AppDataSource.getRepository(User);
