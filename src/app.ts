@@ -15,4 +15,5 @@ app.use("/properties", propertiesRouter);
 app.use("/schedules", schedulesRouter);
 app.use("", usersRouter);
 app.use(handleErrorMiddleware);
+
 export default app;
